@@ -1,0 +1,97 @@
+Description: <short summary of the patch>
+ .
+ solid (5.44.0-0ubuntu2) bionic; urgency=low
+ .
+   * Backport patch: https://phabricator.kde.org/D28476
+     - Fix "getmntent for samba returns fsname of the form '//server/folder' (same as mount)"
+Author: Fabian Aichele <aichele@zykl.io>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: 2020-05-02
+
+--- solid-5.44.0.orig/src/solid/devices/backends/fstab/fstabhandling.cpp
++++ solid-5.44.0/src/solid/devices/backends/fstab/fstabhandling.cpp
+@@ -122,6 +122,30 @@ bool _k_isFstabNetworkFileSystem(const Q
+     return false;
+ }
+ 
++bool _k_isFstabSupportedLocalFileSystem(const QString &fstype)
++{
++    if (fstype == "fuse.encfs" ||
++        fstype == "fuse.cryfs" ||
++        fstype == "overlay") {
++        return true;
++    }
++    return false;
++}
++
++QString _k_deviceNameForMountpoint(const QString &source, const QString &fstype,
++                                   const QString &mountpoint)
++{
++    if (fstype.startsWith("fuse.") ||
++        fstype == QLatin1String("overlay")) {
++            return fstype + mountpoint;
++    } else if (fstype == QLatin1String("cifs")) {
++        // append mountpoint to samba device name as they don't contain it in getmntent return
++        // and this is needed to differentiate different mounts with same source
++        return source + QLatin1Char(':') + mountpoint;
++    }
++    return source;
++}
++
+ void Solid::Backends::Fstab::FstabHandling::_k_updateFstabMountPointsCache()
+ {
+     if (globalFstabCache->m_fstabCacheValid) {
+@@ -140,9 +164,12 @@ void Solid::Backends::Fstab::FstabHandli
+ 
+     struct mntent *fe;
+     while ((fe = getmntent(fstab)) != nullptr) {
+-        if (_k_isFstabNetworkFileSystem(fe->mnt_type, fe->mnt_fsname)) {
+-            const QString device = QFile::decodeName(fe->mnt_fsname);
++        const QString fsname = QFile::decodeName(fe->mnt_fsname);
++        const QString fstype = QFile::decodeName(fe->mnt_type);
++        if (_k_isFstabNetworkFileSystem(fstype, fsname) ||
++            _k_isFstabSupportedLocalFileSystem(fstype)) {
+             const QString mountpoint = QFile::decodeName(fe->mnt_dir);
++            const QString device = _k_deviceNameForMountpoint(fsname, fstype, mountpoint);
+             QStringList options = QFile::decodeName(fe->mnt_opts).split(QLatin1Char(','));
+ 
+             globalFstabCache->m_fstabCache.insert(device, mountpoint);
+@@ -280,9 +307,11 @@ void Solid::Backends::Fstab::FstabHandli
+ #else
+         QString type = QFile::decodeName(mounted[i].f_fstypename);
+ #endif
+-        if (_k_isFstabNetworkFileSystem(type, QString())) {
+-            const QString device = QFile::decodeName(mounted[i].f_mntfromname);
++        if (_k_isFstabNetworkFileSystem(type, QString()) ||
++            _k_isFstabSupportedLocalFileSystem(type)) {
++            const QString fsname = QFile::decodeName(mounted[i].f_mntfromname);
+             const QString mountpoint = QFile::decodeName(mounted[i].f_mntonname);
++            const QString device = _k_deviceNameForMountpoint(fsname, type, mountpoint);
+             globalFstabCache->m_mtabCache.insert(device, mountpoint);
+         }
+     }
+@@ -353,9 +382,11 @@ void Solid::Backends::Fstab::FstabHandli
+     STRUCT_MNTENT fe;
+     while (GETMNTENT(mnttab, fe)) {
+         QString type = QFile::decodeName(MOUNTTYPE(fe));
+-        if (_k_isFstabNetworkFileSystem(type, QString())) {
+-            const QString device = QFile::decodeName(FSNAME(fe));
++        if (_k_isFstabNetworkFileSystem(type, QString()) ||
++            _k_isFstabSupportedLocalFileSystem(type)) {
++            const QString fsname = QFile::decodeName(FSNAME(fe));
+             const QString mountpoint = QFile::decodeName(MOUNTPOINT(fe));
++            const QString device = _k_deviceNameForMountpoint(fsname, type, mountpoint);
+             globalFstabCache->m_mtabCache.insert(device, mountpoint);
+         }
+     }
