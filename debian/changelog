@@ -1,0 +1,467 @@
+solid (5.44.0-0ubuntu1) bionic; urgency=medium
+
+  * Drop upstream patch applied in Frameworks 5.44
+    - remove d/p: upstream_udisks-fix-auto-mount-regression.patch
+  * New upstream release (5.44.0)
+
+ -- Rik Mills <rikmills@kubuntu.org>  Mon, 12 Mar 2018 20:00:38 +0000
+
+solid (5.43.0-0ubuntu2) bionic; urgency=medium
+
+  * Add upstream patch to fix bug KDE BUG:389479 'Devices with empty
+    path stopped auto-mounting'
+    - debian/patches: upstream_udisks-fix-auto-mount-regression.patch
+
+ -- Rik Mills <rikmills@kubuntu.org>  Sat, 24 Feb 2018 15:54:33 +0000
+
+solid (5.43.0-0ubuntu1) bionic; urgency=medium
+
+  * New upstream release (5.43.0)
+
+ -- Rik Mills <rikmills@kubuntu.org>  Sun, 11 Feb 2018 11:18:02 +0000
+
+solid (5.42.0-0ubuntu1) bionic; urgency=medium
+
+  * New upstream release (5.42.0)
+
+ -- Rik Mills <rikmills@kubuntu.org>  Fri, 26 Jan 2018 22:24:30 +0000
+
+solid (5.41.0-0ubuntu1) bionic; urgency=low
+
+  * New upstream release (5.41.0)
+
+ -- Walter Lapchynski <wxl@ubuntu.com>  Sun, 10 Dec 2017 22:10:07 -0600
+
+solid (5.40.0-0ubuntu1) bionic; urgency=medium
+
+  * New upstream release (5.39.0)
+  * New upstream release (5.40.0)
+
+ -- Rik Mills <rikmills@kubuntu.org>  Fri, 24 Nov 2017 17:19:05 +0000
+
+solid (5.38.0-0ubuntu1) artful; urgency=low
+
+  * New upstream release (5.38.0)
+
+ -- Rik Mills <rikmills@kubuntu.org>  Mon, 11 Sep 2017 13:18:27 +0100
+
+solid (5.37.0-0ubuntu1) artful; urgency=low
+
+  * New upstream release (5.37.0)
+
+ -- Rik Mills <rikmills@kubuntu.org>  Sat, 12 Aug 2017 18:47:04 +0100
+
+solid (5.36.0-0ubuntu1) artful; urgency=low
+
+  * New upstream release (5.36.0)
+
+ -- José Manuel Santamaría Lema <panfaust@gmail.com>  Tue, 11 Jul 2017 23:52:04 +0100
+
+solid (5.35.0-0ubuntu2) artful; urgency=medium
+
+  * Cherry-pick commit from KDE Neon packaging from Harald Sitter;
+    - Promote media-player-info from suggests to recommends; without this
+      package solid cannot identify/query portable media players
+
+ -- Rik Mills <rikmills@kubuntu.org>  Tue, 20 Jun 2017 08:29:30 +0100
+
+solid (5.35.0-0ubuntu1) artful; urgency=low
+
+  * New upstream release (5.35.0)
+
+ -- José Manuel Santamaría Lema <panfaust@gmail.com>  Mon, 12 Jun 2017 22:56:56 +0100
+
+solid (5.34.0-0ubuntu1) artful; urgency=low
+
+  * New upstream release (5.34.0)
+  * Add dbus-x11 to testsuite Depends in order to fix autopkgtests
+
+ -- José Manuel Santamaría Lema <panfaust@gmail.com>  Mon, 15 May 2017 21:24:53 +0100
+
+solid (5.33.0-0ubuntu1) artful; urgency=low
+
+  * New upstream release (5.33.0)
+
+ -- José Manuel Santamaría Lema <panfaust@gmail.com>  Sat, 29 Apr 2017 18:03:52 +0100
+
+solid (5.31.0-0ubuntu1) zesty; urgency=medium
+
+  * Pass '-fno-keep-inline-functions' to gcc in the acc test in order to
+    avoid possible spurious test failures.
+  * New upstream release (5.31.0)
+
+ -- José Manuel Santamaría Lema <panfaust@gmail.com>  Tue, 14 Feb 2017 22:50:10 +0000
+
+solid (5.30.0-0ubuntu1) zesty; urgency=low
+
+  * New upstream release (5.30.0)
+
+ -- Rik Mills <rikmills@kubuntu.org>  Wed, 01 Feb 2017 18:33:48 +0000
+
+solid (5.28.0-0ubuntu1) zesty; urgency=low
+
+  [ Rik Mills ]
+  * New upstream release (5.27.0)
+  * Refresh patch use_shortest_filepath.diff
+
+  [ José Manuel Santamaría Lema ]
+  * Update Vcs-Git field to use https:// instead of git://
+  * New upstream release (5.28.0)
+
+  [ Simon Quigley ]
+  * Merge from Debian
+
+ -- José Manuel Santamaría Lema <panfaust@gmail.com>  Mon, 05 Dec 2016 20:15:43 +0000
+
+solid (5.27.0-1) unstable; urgency=medium
+
+  [ Automatic packaging ]
+  * Update build-deps and deps with the info from cmake
+
+  [ Maximiliano Curia ]
+  * New upstream release (5.27)
+  * Bump group breaks (5.27)
+
+ -- Maximiliano Curia <maxy@debian.org>  Sat, 15 Oct 2016 16:58:07 +0200
+
+solid (5.26.0-1) unstable; urgency=medium
+
+  [ Automatic packaging ]
+  * Update build-deps and deps with the info from cmake
+
+  [ Maximiliano Curia ]
+  * Bump group breaks (5.26)
+
+ -- Maximiliano Curia <maxy@debian.org>  Thu, 29 Sep 2016 11:58:25 +0200
+
+solid (5.26.0-0ubuntu1) yakkety; urgency=medium
+
+  * Add MediaPlayerInfo to cmake-ignore as loaded at runtime
+  * New upstream release (5.26.0)
+
+ -- Rik Mills <rik.mills88@gmail.com>  Thu, 22 Sep 2016 13:53:42 +0100
+
+solid (5.25.0-1) unstable; urgency=medium
+
+  [ Automatic packaging ]
+  * Update build-deps and deps with the info from cmake
+
+  [ Maximiliano Curia ]
+  * Bump group breaks (5.25)
+
+ -- Maximiliano Curia <maxy@debian.org>  Thu, 18 Aug 2016 17:20:25 +0200
+
+solid (5.24.0-0ubuntu1) yakkety; urgency=medium
+
+  * New upstream release (5.24.0)
+
+ -- Philip Muškovac <yofel@kubuntu.org>  Tue, 26 Jul 2016 08:52:17 +0000
+
+solid (5.23.0-1) unstable; urgency=medium
+
+  [ Automatic packaging ]
+  * Update build-deps and deps with the info from cmake
+  * Refresh patches
+
+ -- Maximiliano Curia <maxy@debian.org>  Sat, 18 Jun 2016 08:26:11 +0200
+
+solid (5.23.0-0ubuntu1) yakkety; urgency=medium
+
+  * New upstream release (5.23.0)
+
+ -- Clive Johnston <clivejo@kubuntu.org>  Mon, 11 Jul 2016 22:25:22 +0200
+
+solid (5.22.0-1) unstable; urgency=medium
+
+  [ Automatic packaging ]
+  * Update build-deps and deps with the info from cmake
+
+  [ Maximiliano Curia ]
+  * Add new patch: use_shortest_filepath.diff
+
+ -- Maximiliano Curia <maxy@debian.org>  Wed, 18 May 2016 23:50:32 +0200
+
+solid (5.22.0-0ubuntu1) yakkety; urgency=medium
+
+  [ Scarlett Clark ]
+  * New upstream release. 
+  * Debian merge: No remaining changes. 
+
+  [ Philip Muškovac ]
+  * Update the Vcs URLs now that the repositories are hosted on
+    Launchpad
+
+  [ Clive Johnston ]
+  * New upstream release
+
+ -- Clive Johnston <clivejo@kubuntu.org>  Wed, 18 May 2016 12:37:57 -0700
+
+solid (5.21.0-1) experimental; urgency=medium
+
+  [ Maximiliano Curia ]
+  * Replace the "Historical name" ddeb-migration by its "Modern, clearer" replacement dbgsym-migration.
+  * Add upstream metadata (DEP-12)
+  * Drop qt5-qmltooling-plugins build dependency
+  * Update acc test script
+  * uscan no longer supports more than one main upstream tarball being listed
+
+  [ Automatic packaging ]
+  * Update build-deps and deps with the info from cmake
+  * Bump Standards-Version to 3.9.8
+
+ -- Maximiliano Curia <maxy@debian.org>  Thu, 05 May 2016 18:48:46 +0200
+
+solid (5.19.0-2) experimental; urgency=medium
+
+  * Add missing build dependency.
+  * Bump Standards-Version to 3.9.7, no changes needed.
+
+ -- Maximiliano Curia <maxy@debian.org>  Wed, 24 Feb 2016 07:18:31 +0100
+
+solid (5.19.0-1) experimental; urgency=medium
+
+  * New upstream release (5.19.0).
+
+ -- Maximiliano Curia <maxy@debian.org>  Sat, 13 Feb 2016 15:16:03 +0100
+
+solid (5.18.0-1) experimental; urgency=medium
+
+  * New upstream release (5.17.0).
+  * New upstream release (5.18.0).
+
+ -- Maximiliano Curia <maxy@debian.org>  Wed, 27 Jan 2016 13:33:41 +0100
+
+solid (5.18.0-0ubuntu1) xenial; urgency=medium
+
+  [ Scarlett Clark ]
+  * Debian merge. No remaining changes. 
+  * New upstream release Xenial
+
+  [ Philip Muškovac ]
+  * New upstream release
+
+ -- Philip Muškovac <yofel@kubuntu.org>  Wed, 06 Jan 2016 15:12:54 +0100
+
+solid (5.16.0-1) unstable; urgency=medium
+
+  * New upstream release (5.16.0).
+
+ -- Maximiliano Curia <maxy@debian.org>  Mon, 30 Nov 2015 12:12:58 +0100
+
+solid (5.15.0-1) unstable; urgency=medium
+
+  * New upstream release (5.15.0).
+  * Update symbols files from buildds logs (5.14.0-2).
+
+ -- Maximiliano Curia <maxy@debian.org>  Fri, 09 Oct 2015 19:16:09 +0200
+
+solid (5.15.0-0ubuntu2) xenial; urgency=medium
+
+  * Fix autopackagetests by adding allow-stderr to the requirements.
+
+ -- Philip Muškovac <yofel@kubuntu.org>  Tue, 03 Nov 2015 15:34:56 +0100
+
+solid (5.15.0-0ubuntu1) wily; urgency=medium
+
+  [ Scarlett Clark ]
+  * Vivid backport
+
+  [ Jonathan Riddell ]
+  * new upstream release
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 07 Oct 2015 14:00:21 +0100
+
+solid (5.14.0-2) unstable; urgency=medium
+
+  * Move auto test to autopkgtests.
+
+ -- Maximiliano Curia <maxy@debian.org>  Fri, 18 Sep 2015 14:12:59 +0200
+
+solid (5.14.0-1) unstable; urgency=medium
+
+  * New upstream release (5.14.0).
+  * Removed private classes from exported symbols.
+
+ -- Maximiliano Curia <maxy@debian.org>  Tue, 15 Sep 2015 13:48:35 +0200
+
+solid (5.14.0-0ubuntu1) wily; urgency=medium
+
+  * new upstream release
+
+ -- Clive Johnston <clivejo@aol.com>  Thu, 17 Sep 2015 13:29:41 +0100
+
+solid (5.13.0-1) unstable; urgency=medium
+
+  * New upstream release (5.13.0).
+
+ -- Maximiliano Curia <maxy@debian.org>  Thu, 27 Aug 2015 18:35:57 +0200
+
+solid (5.13.0-0ubuntu1) wily; urgency=medium
+
+  * new upstream release
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 10 Aug 2015 13:36:52 +0200
+
+solid (5.12.0-1) unstable; urgency=medium
+
+  * New upstream release (5.12.0).
+  * Update symbols files for gcc5 compatibility. (Closes: #791738)
+    Thanks to Martin Michlmayr
+
+ -- Maximiliano Curia <maxy@debian.org>  Thu, 09 Jul 2015 12:43:16 +0200
+
+solid (5.12.0-0ubuntu1) wily; urgency=medium
+
+  [ Scarlett Clark ]
+  * New upstream release
+
+  [ José Manuel Santamaría Lema ]
+  * Update symbols file: mark as optional the symbols gone after
+    building with GCC 5
+
+  [ Scarlett Clark ]
+  * Remove misplaced backport.
+
+ -- Scarlett Clark <sgclark@kubuntu.org>  Mon, 03 Aug 2015 16:12:31 +0200
+
+solid (5.11.0-1) unstable; urgency=medium
+
+  [ Maximiliano Curia ]
+  * New upstream release (5.10.0).
+  * New upstream release (5.11.0).
+
+ -- Maximiliano Curia <maxy@debian.org>  Fri, 26 Jun 2015 17:04:16 +0200
+
+solid (5.10.0-0ubuntu1) wily; urgency=medium
+
+  [ Jonathan Riddell ]
+  * New upstream release
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 03 Jun 2015 21:03:54 +0200
+
+solid (5.9.0-1) experimental; urgency=medium
+
+  * New upstream release (5.9.0).
+
+ -- Maximiliano Curia <maxy@debian.org>  Thu, 23 Apr 2015 08:25:31 +0200
+
+solid (5.9.0-0ubuntu1) vivid; urgency=medium
+
+  * New upstream release
+
+ -- Scarlett Clark <sgclark@kubuntu.org>  Mon, 13 Apr 2015 23:20:12 +0200
+
+solid (5.8.0-1) experimental; urgency=medium
+
+  * New upstream release (5.8.0).
+  * Update symbols files.
+
+ -- Maximiliano Curia <maxy@debian.org>  Sat, 14 Mar 2015 22:27:07 +0100
+
+solid (5.8.0-0ubuntu1) vivid; urgency=medium
+
+  * New upstream release
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Tue, 17 Mar 2015 15:46:36 +0100
+
+solid (5.7.0-1) experimental; urgency=medium
+
+  * New upstream release (5.7.0).
+
+ -- Maximiliano Curia <maxy@debian.org>  Wed, 04 Mar 2015 17:45:34 +0100
+
+solid (5.7.0-0ubuntu1) vivid; urgency=medium
+
+  * New upstream release
+
+ -- Harald Sitter <sitter@kde.org>  Tue, 10 Feb 2015 16:51:02 +0100
+
+solid (5.6.0-1) experimental; urgency=medium
+
+  [ Harald Sitter ]
+  * Do not build depend on qt5-default, we only need qtbase5-dev
+
+  [ Maximiliano Curia ]
+  * New upstream release (5.6.0).
+  * Bump build dependencies to build against the experimental versions.
+  * Bump Standards-Version to 3.9.6, no changes needed.
+  * Update install files.
+  * Update build dependencies to follow cmake.
+  * Update copyright information.
+  * Add basic autopkgtests support.
+
+ -- Maximiliano Curia <maxy@debian.org>  Sat, 24 Jan 2015 18:57:50 +0100
+
+solid (5.6.0-0ubuntu1) vivid; urgency=medium
+
+  * New upstream release
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Tue, 06 Jan 2015 20:12:45 +0100
+
+solid (5.5.0-0ubuntu1) vivid; urgency=medium
+
+  * New upstream release
+
+ -- Scarlett Clark <sgclark@kubuntu.org>  Mon, 15 Dec 2014 12:46:55 +0100
+
+solid (5.4.0-0ubuntu1) vivid; urgency=medium
+
+  * New upstream release
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Fri, 07 Nov 2014 15:04:02 +0100
+
+solid (5.3.0-0ubuntu1) utopic; urgency=medium
+
+  [ Harald Sitter ]
+  * Do not build depend on qt5-default, we only need qtbase5-dev
+
+  [ Jonathan Riddell ]
+  * New upstream release
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Tue, 07 Oct 2014 11:13:34 +0100
+
+solid (5.2.0-0ubuntu1) utopic; urgency=medium
+
+  [ Jonathan Riddell ]
+  * New upstream release
+  * Use pkg-kde-tools version 3 scripts
+
+  [ Scarlett Clark ]
+  * Fix qml-module-org-kde-solid.install to reflect new paths.
+  * Move copyright extra details to comment to silence
+    space-in-std-shortname-in-dep5-copyright lintian error.
+  * Revert to original install paths. Upstream Review:120229
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 22 Sep 2014 19:35:42 +0200
+
+solid (5.1.0-0ubuntu1) utopic; urgency=medium
+
+  * New upstream release
+
+ -- Scarlett Clark <scarlett@scarlettgatelyclark.com>  Tue, 05 Aug 2014 17:08:07 +0200
+
+solid (5.0.0-0ubuntu3) utopic; urgency=medium
+
+  [ Jonathan Riddell ]
+  * Make symbols file have an implicit dependency on
+    qml-module-org-kde-solid
+
+  [ José Manuel Santamaría Lema ]
+  * Update libraries *.install paths so a soname bump doesn't go
+    unnoticed.
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 23 Jul 2014 17:42:42 +0200
+
+solid (5.0.0-0ubuntu2) utopic; urgency=medium
+
+  * Update copyright to match licensing to source
+  * Rename qml package to qml-module naming scheme
+
+ -- Scarlett Clark <scarlett@scarlettgatelyclark.com>  Wed, 16 Jul 2014 09:13:48 -0700
+
+solid (5.0.0-0ubuntu1) utopic; urgency=medium
+
+  [ Jonathan Riddell ]
+  * Initial stable upstream release
+
+ -- Rohan Garg <rohangarg@kubuntu.org>  Thu, 10 Jul 2014 17:30:10 +0200
